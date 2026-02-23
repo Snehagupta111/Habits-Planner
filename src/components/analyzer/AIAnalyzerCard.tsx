@@ -8,7 +8,7 @@ import type { AIInsightResponse } from '../../types';
 import { motion } from 'framer-motion';
 
 export const AIAnalyzerCard: React.FC = () => {
-    const { habits, completions } = useHabits();
+    const { habits, completions, apiKey } = useHabits();
     const { toast } = useToast();
     const [loading, setLoading] = useState(false);
     const [insights, setInsights] = useState<AIInsightResponse | null>(null);
@@ -18,7 +18,10 @@ export const AIAnalyzerCard: React.FC = () => {
         setInsights(null);
 
         try {
-            const result = await analyzeHabits(habits, completions);
+            if (!apiKey) {
+                throw new Error("Please add your Gemini API Key in Settings first.");
+            }
+            const result = await analyzeHabits(habits, completions, apiKey);
             setInsights(result);
             toast({
                 title: "Analysis Complete! ✨",

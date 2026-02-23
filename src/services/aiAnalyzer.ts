@@ -1,14 +1,15 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import type { Habit, HabitCompletion, AIInsightResponse } from '../types';
 
-const GEMINI_API_KEY = 'AIzaSyD9QTrnTn6oZPpCI0ezxDo6bf2k8D_F9eA';
-
 export const analyzeHabits = async (
     habits: Habit[],
     completions: HabitCompletion[],
-    _apiKey?: string // Optional now, since we'll use the hardcoded one
+    apiKey: string
 ): Promise<AIInsightResponse> => {
-    const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
+    if (!apiKey) {
+        throw new Error('Gemini API key is required');
+    }
+    const genAI = new GoogleGenerativeAI(apiKey);
     const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
 
     const promptData = {
