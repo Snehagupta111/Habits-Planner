@@ -1,11 +1,11 @@
 import type { Habit, HabitCompletion } from '../types';
 
 export const MOCK_HABITS: Habit[] = [
-    { id: 'h1', name: 'Morning Workout', color: 'bg-emerald-500', createdAt: '2026-02-01' },
-    { id: 'h2', name: 'Read 20 Mins', color: 'bg-blue-500', createdAt: '2026-02-01' },
-    { id: 'h3', name: 'Meditate', color: 'bg-violet-500', createdAt: '2026-02-01' },
-    { id: 'h4', name: 'Drink 2L Water', color: 'bg-cyan-500', createdAt: '2026-02-01' },
-    { id: 'h5', name: 'Code for 1 Hour', color: 'bg-amber-500', createdAt: '2026-02-01' }
+    { id: 'h1', name: 'Morning Workout', color: 'bg-emerald-500', icon: null, createdAt: '2026-02-01' },
+    { id: 'h2', name: 'Read 20 Mins', color: 'bg-blue-500', icon: null, createdAt: '2026-02-01' },
+    { id: 'h3', name: 'Meditate', color: 'bg-violet-500', icon: null, createdAt: '2026-02-01' },
+    { id: 'h4', name: 'Drink 2L Water', color: 'bg-cyan-500', icon: null, createdAt: '2026-02-01' },
+    { id: 'h5', name: 'Code for 1 Hour', color: 'bg-amber-500', icon: null, createdAt: '2026-02-01' }
 ];
 
 // Helper to get dates for the past 7 days
